@@ -6,15 +6,28 @@
     </head>
     <body>
 
-<?php
-    $randArr = [];
-    $i = 0;
-    while ($i < 15) {
-        $randArr[] = rand(1, 100);
-        $i++;
-    }
-    var_dump($randArr);
-?>
+        <?php
+            $randArr = [];
+
+            while (count($randArr) < 15) {
+                $newN = rand(1, 100);
+                if (!in_array($newN, $randArr)) {
+                    $randArr[] = $newN;
+                }
+                else {
+                    var_dump('numeri doppi = ' . $newN);
+                }
+            }
+            var_dump($randArr);
+        ?>
+
+        <ul>
+            <?php
+                for ($i = 0; $i < count($randArr); $i++) {
+                    echo '<li>' . $randArr[$i] . '</li>';
+                }
+            ?>
+        </ul>
 
 
     </body>
